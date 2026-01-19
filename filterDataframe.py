@@ -31,5 +31,9 @@ filtered_value = np.where((df['Age'] > 30) & (df['Salary'] > 80000))
 print(filtered_value)
 print(df.loc[filtered_value])
 
+#filter dataframe using query
+#query and eval works onnly with columns
+print("\nFiltering dataframe with multiple conditions using query")
+print(df.query('Salary > 90000 & Age > 40'))
 
 
