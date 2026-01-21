@@ -1,5 +1,3 @@
-#concate two dataframe
-
 import pandas as pd
 
 data1 = {
@@ -25,3 +23,25 @@ frames = [df, df1]
 
 result = pd.concat(frames)
 print("\n", result)
+
+#concatenating df by setting logic on Axes
+print("\nConcatenation df by setting logic on Axes")
+result1 = pd.concat([df, df1], axis = 1, join = 'outer')
+print(result1)
+
+#using inner join
+print("\nUsing inner join")
+result2 = pd.concat([df, df1], axis = 1, join = 'inner')
+print(result2)
+
+#concat df by ignoring indexes
+igIndex = pd.concat([df, df1], ignore_index = True)
+print("\nConcat df by ignoring indexes")
+print(igIndex)
+
+#concat df using group key
+groupKey = pd.concat([df, df], keys=['X', 'Y'])
+print("\nConcat df using group key")
+print(groupKey)
+
+
