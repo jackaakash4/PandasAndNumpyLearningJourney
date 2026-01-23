@@ -24,3 +24,6 @@ print(df, "\n", df1)
 result = pd.merge(df, df1, on='id')
 print("Merging using id")
 print(result)
+
+
+
