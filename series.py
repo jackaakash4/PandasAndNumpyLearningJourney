@@ -42,3 +42,24 @@ list_comp = pd.Series(range(1, 20, 5), index = [x for x in 'abcd'])
 print("List comprehension")
 print(list_comp)
 
+
+#Accessing the series
+#accessing the first element
+print("\nAccessing the first element")
+print(s[0])
+
+#accessing the first 5 element
+print("\nAccessing the first 5 element")
+print(s[:5])
+
+#Accessing the last 4 elements
+print("\nAccessing the last 4 elements")
+print(list_comp[-4:])
+
+#Acessing first five elements of series in csv file
+
+df = pd.read_csv("people_data.csv")
+csv_ser = pd.Series(df['First Name'])
+print("\nFirst five elements of series in csv file")
+print(csv_ser.head(5))
+
