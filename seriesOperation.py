@@ -12,3 +12,9 @@ print("Series: \n ", s1, "\n", s2)
 result = s1 + s2
 print("Addition: \n", result)
 
+#comparison operations on series
+ser1 = pd.Series([10, 20, 30])
+ser2 = pd.Series([10, 20, 30])
+
+print("Comparing two series")
+print(s1 == s2)
