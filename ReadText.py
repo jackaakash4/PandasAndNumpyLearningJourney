@@ -16,3 +16,8 @@ print("\n",df1)
 
 df2 = pd.read_table("name.txt", delimiter = " ")
 print("\n",df2)
+
+#reading text file using read_fwf() method
+
+df3 = pd.read_fwf("name.txt")
+print("\n", df3)
