@@ -11,3 +11,14 @@ df = pd.DataFrame(data)
 
 df1 = df.fillna(0)
 print(df1)
+
+#fill with previous value(fill forward)
+
+fill_forward = df.fillna(method='ffill')
+print("\nFilled forward")
+print(fill_forward)
+
+#fill with next value(backward fill)
+fill_backward = df.fillna(method='bfill')
+print("\nFilled backward")
+print(fill_backward)
