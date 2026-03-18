@@ -8,3 +8,6 @@ df = pd.DataFrame({"A": [12, 4, 5, None, 1],
                    "D": [14, 3, None, None, 6]}) 
 print(df)
 
+print("\nAfter interpolate")
+print(df.interpolate(method = "linear", limit_direction = "forward"))
+
