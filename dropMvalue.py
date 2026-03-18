@@ -12,3 +12,15 @@ df = pd.DataFrame(dict1)
 
 print("Before droping missing value\n", df)
 print("\nAfter dropping missing values\n", df.dropna())
+
+#dropping rows with all null values
+#dropna(how = 'all')
+
+print("\nAfter dropping rows with all null values")
+print(df.dropna(how='all'))
+
+#dropping rows with at least one null values
+#dropna(axis = 1)
+
+print("\nAfter dropping column with at least one null values")
+print(df.dropna(axis = 1))
