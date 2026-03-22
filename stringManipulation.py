@@ -19,3 +19,7 @@ print("Converted each unique string into a separate encoded column\n", df['City'
 
 print("Checking: \n", df['Name'].str.startswith('M'))
 
+#endswith() to check whether each string ends with the specified suffix
+
+print("Checking suffix:\n", df['City'].str.endswith('n'))
+
