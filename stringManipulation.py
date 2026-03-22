@@ -23,3 +23,7 @@ print("Checking: \n", df['Name'].str.startswith('M'))
 
 print("Checking suffix:\n", df['City'].str.endswith('n'))
 
+#replace() to replace the substring or pattern with a new value
+
+print("Replacing the value: \n", df['City'].str.replace('Berlin', 'Kathmandu'))
+
