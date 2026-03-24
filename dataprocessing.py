@@ -7,4 +7,7 @@ import pandas as pd
 #loading data in pandas dataframe
 data_frame = pd.read_csv("employees.csv")
 
+#printing rows of the data
+print(data_frame.head())
 
+print(data_frame.tail())
