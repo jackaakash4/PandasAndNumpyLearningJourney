@@ -22,3 +22,12 @@ print("The summary of the dataframe is \n", data_frame.info())
 
 #descriptive statistical measures of a dataframe
 print("The descriptive statistical measures of a dataframe is \n", data_frame.describe())
+
+#handling missing data
+#find missing values in the dataset using isnull() to detect the missing values
+
+print("Finding the null value in dataframe: \n", data_frame.isnull())
+
+#finding the number of missing values in the dataset
+print("Finding the no of missing values in the dataset: \n", data_frame.isnull().sum())
+
