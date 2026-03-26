@@ -31,3 +31,12 @@ print("Finding the null value in dataframe: \n", data_frame.isnull())
 #finding the number of missing values in the dataset
 print("Finding the no of missing values in the dataset: \n", data_frame.isnull().sum())
 
+#Adding new columns
+
+data_frame["New Column"] = 1
+
+print("After adding new column \n", data_frame.head())
+
+#sorting dataframe by column
+print("After soring \n", data_frame.sort_values(by='First Name').head())
+
