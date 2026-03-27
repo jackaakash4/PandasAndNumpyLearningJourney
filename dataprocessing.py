@@ -29,6 +29,7 @@ print("The descriptive statistical measures of a dataframe is \n", data_frame.de
 print("Finding the null value in dataframe: \n", data_frame.isnull())
 
 #finding the number of missing values in the dataset
+
 print("Finding the no of missing values in the dataset: \n", data_frame.isnull().sum())
 
 #Adding new columns
@@ -39,4 +40,15 @@ print("After adding new column \n", data_frame.head())
 
 #sorting dataframe by column
 print("After soring \n", data_frame.sort_values(by='First Name').head())
+
+#applying function 
+
+def salary(sal):
+    if sal > 30000:
+        return "Highly paid"
+    else:
+        return "Lowly paid"
+
+data_frame["Employee Satifaction"] = data_frame['Salary'].apply(salary)
+print("After applying function: \n", data_frame.head(5))
 
