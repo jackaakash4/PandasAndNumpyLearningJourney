@@ -1,5 +1,5 @@
 import pandas as pd
-
+import matplotlib.pyplot as plt
 #importing csv file's data
 
 data = pd.read_csv("employees.csv")
@@ -14,4 +14,5 @@ print("\nSummary of df: \n", dataframe.info())
 print("\nDetail of df: \n", dataframe.describe())
 
 #Ploting the histogram
-dataframe.plot.hist()
+dataframe.plot(kind = 'bar')
+plt.show()
