@@ -12,5 +12,8 @@ sub3 = plt.subplot(2, 2, 3)
 sub4 = plt.subplot(2, 2, 4)
 
 sub1.plot(a, 'sb')
+sub2.plot(b, 'or')
+sub3.plot(c, 'Dm')
+sub4.plot(list(range(0, 22, 3)), 'vg')
 
 plt.show()
