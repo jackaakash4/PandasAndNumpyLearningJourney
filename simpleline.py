@@ -9,6 +9,7 @@ plt.title("Simple line plot with label")
 plt.xlabel("x")
 plt.ylabel("y = x^2")
 plt.plot(x, y, marker = 'o', linestyle = '--', label = 'Datapoint')
+plt.grid(True)
 plt.legend()
 plt.show()
 
