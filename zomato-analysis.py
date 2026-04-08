@@ -21,3 +21,7 @@ dataframe['rate'] = dataframe['rate'].apply(handleRate)
 print("\nAfter change in rate's datatype",dataframe.head())
 
 print("\nDataframe's info: \n", dataframe.info())
+
+#checking for missing or null values to identify any data gaps
+
+print("Any missing value: \n", dataframe.isnull().sum())
