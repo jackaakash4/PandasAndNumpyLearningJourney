@@ -8,10 +8,23 @@ df = pd.read_csv("iris.csv")
 print(df.head())
 
 #getting the information about the dataset
-print("Information about the dataset\n", df.shape)
+print("\nInformation about the dataset\n", df.shape)
 
 
 print(df.info())
 
 #summary of the dataset
-print("\nSummary of the dataset", df.describe())
+print("\nSummary of the dataset\n", df.describe())
+
+#checking the missing value
+#using isnull()
+
+print("\nChecking the missing value \n", df.isnull().sum())
+
+#checking the duplicates value
+
+data = df.drop_duplicates(subset = 'species',)
+print("\nAfter dropping the duplicates:\n", data)
+
+#checking the number of element in each species
+print("\nChecking the species number count\n", df.value_counts('species'))
