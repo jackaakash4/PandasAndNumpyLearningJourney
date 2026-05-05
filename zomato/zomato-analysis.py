@@ -27,3 +27,11 @@ def handleRate(rate):
 df['rate'] = df['rate'].apply(handleRate)
 print("\nAfter converting rate column to float",df.head())
 print("\nRate\n", df['rate'])
+
+#summarize the dataframe
+print("\nSummary of the dataframe \n", df.info())
+
+
+#
+#checking for missing value
+print("\nChecking for missing values or null valuus \n", df.isnull().sum())
