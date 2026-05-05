@@ -32,6 +32,13 @@ print("\nRate\n", df['rate'])
 print("\nSummary of the dataframe \n", df.info())
 
 
-#
 #checking for missing value
 print("\nChecking for missing values or null valuus \n", df.isnull().sum())
+
+#visualizing the dataset
+
+sns.countplot(x = df['listed_in(type)'], hue = df['listed_in(type)'],)
+plt.xlabel("Types of restaurant")
+plt.ylabel("No. of restuarant")
+
+plt.show()
