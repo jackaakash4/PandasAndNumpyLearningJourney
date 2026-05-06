@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 #reading the csv file
 
@@ -28,3 +30,13 @@ print("\nAfter dropping the duplicates:\n", data)
 
 #checking the number of element in each species
 print("\nChecking the species number count\n", df.value_counts('species'))
+
+#data visualization
+
+sns.countplot(x='species', data = df)
+plt.show()
+
+#pairwire relationships in dataset using seaborn
+iris = sns.load_dataset("iris")
+sns.pairplot(iris, hue = "species")
+plt.show()
