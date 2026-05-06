@@ -52,3 +52,17 @@ plt.plot(result, c = 'green', marker = 'x')
 plt.xlabel('Types of restaurant')
 plt.ylabel('votes')
 plt.show()
+
+
+#identify the most voted  restaurant
+
+max_votes = df['votes'].max()
+
+rest_with_max_votes = df.loc[df['votes'] == max_votes, 'name']
+
+print('Restaurant with the maximum votes:', rest_with_max_votes)
+
+
+#online order availability
+sns.countplot(x = df['online_order'], hue = df['online_order'])
+plt.show()
