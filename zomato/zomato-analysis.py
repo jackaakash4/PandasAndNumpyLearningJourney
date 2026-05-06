@@ -63,6 +63,20 @@ rest_with_max_votes = df.loc[df['votes'] == max_votes, 'name']
 print('Restaurant with the maximum votes:', rest_with_max_votes)
 
 
+
+
 #online order availability
 sns.countplot(x = df['online_order'], hue = df['online_order'])
+plt.show()
+
+
+#analze rating
+plt.hist(df['rate'], bins = 10)
+plt.title("Rating distribution")
+plt.show()
+
+
+#approximate cost for couple
+couple_data = df['approx_cost(for two people)']
+sns.countplot(x = couple_data, hue = couple_data)
 plt.show()
