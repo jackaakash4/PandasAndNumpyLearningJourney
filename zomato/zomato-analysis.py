@@ -80,3 +80,18 @@ plt.show()
 couple_data = df['approx_cost(for two people)']
 sns.countplot(x = couple_data, hue = couple_data)
 plt.show()
+
+#rating comparison - online vs offline order
+
+plt.figure(figsize = (6, 6))
+sns.boxplot(x = 'online_order', y = 'rate',hue = 'online_order', data = df)
+plt.show()
+
+#order mode preferences by restaurant type
+pivot_table = df.pivot_table(index = 'listed_in(type)', columns = 'online_order', aggfunc = 'size', fill_value = 0)
+
+sns.heatmap(pivot_table, annot = True, cmap = 'YlGnBu', fmt = 'd')
+plt.title('Heatmap')
+plt.xlabel("Online order")
+plt.ylabel("Listed In (type)")
+plt.show()
