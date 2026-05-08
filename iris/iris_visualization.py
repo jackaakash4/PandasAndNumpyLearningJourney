@@ -27,3 +27,9 @@ sns.scatterplot(x = 'petal_length', y = 'petal_width', hue = 'species', data = d
 
 plt.legend(bbox_to_anchor = (1, 1), loc = 2)
 plt.show()
+
+
+#3. Pairplot
+
+sns.pairplot(df, hue = 'species', height = 2)
+plt.show()

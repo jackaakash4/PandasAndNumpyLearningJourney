@@ -40,3 +40,5 @@ plt.show()
 iris = sns.load_dataset("iris")
 sns.pairplot(iris, hue = "species")
 plt.show()
+
+
