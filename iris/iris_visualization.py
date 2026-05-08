@@ -33,3 +33,20 @@ plt.show()
 
 sns.pairplot(df, hue = 'species', height = 2)
 plt.show()
+
+#Histograms
+fig, axes = plt.subplots(2, 2, figsize = (10, 10))
+
+axes[0, 0].set_title("Sepal Length")
+axes[0, 0].hist(df['sepal_length'], bins = 7)
+
+axes[0, 1].set_title("Sepal width")
+axes[0, 1].hist(df['sepal_width'], bins = 5)
+
+axes[1, 0].set_title("Petal length")
+axes[1, 0].hist(df['petal_length'], bins = 6)
+
+axes[1, 1].set_title("Petal width")
+axes[1, 1].hist(df['petal_width'], bins = 6)
+
+plt.show()
