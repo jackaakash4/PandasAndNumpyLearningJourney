@@ -63,7 +63,17 @@ plot.map(sns.distplot, 'sepal_width').add_legend()
 plot = sns.FacetGrid(df, hue = 'species')
 plot.map(sns.distplot, 'petal_length').add_legend()
 
-plot = sns.FacedGrid(df, hue = 'species')
+plot = sns.FacetGrid(df, hue = 'species')
 plot.map(sns.distplot, 'petal_width').add_legend()
 
+plt.show()
+
+
+#Handling correlation
+corr = df.select_dtypes(include=['number']).corr(method='pearson')
+print("Pearson correlation: ", corr)
+
+#heatmap from the correlation data
+
+sns.heatmap(df.select_dtypes(include = ['number']).corr(method = 'pearson'))
 plt.show()
