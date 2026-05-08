@@ -50,3 +50,20 @@ axes[1, 1].set_title("Petal width")
 axes[1, 1].hist(df['petal_width'], bins = 6)
 
 plt.show()
+
+
+#histogram with distplot plot
+
+plot = sns.FacetGrid(df, hue = 'species')
+plot.map(sns.displot, 'sepal_length').add_legend()
+
+plot = sns.FacetGrid(df, hue = 'species')
+plot.map(sns.displot, 'sepal_width').add_legend()
+
+plot = sns.FacetGrid(df, hue = 'species')
+plot.map(sns.displot, 'petal_length').add_legend()
+
+plot = sns.FacedGrid(df, hue = 'species')
+plot.map(sns.displot, 'petal_width').add_legend()
+
+plt.show()
