@@ -77,3 +77,25 @@ print("Pearson correlation: ", corr)
 
 sns.heatmap(df.select_dtypes(include = ['number']).corr(method = 'pearson'))
 plt.show()
+
+
+#Boxplot
+
+def graph(y):
+    sns.boxplot(x = 'species', y = y, data = df)
+
+plt.figure(figsize = (10, 10))
+
+plt.subplot(221)
+graph('sepal_length')
+
+plt.subplot(222)
+graph('sepal_width')
+
+plt.subplot(223)
+graph('petal_length')
+
+plt.subplot(224)
+graph('petal_width')
+
+plt.show()
