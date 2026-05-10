@@ -79,11 +79,14 @@ df.drop(['Id'],
 
 
 #replacing SalePrice empty values with their mean
-
 df['SalePrice'] = df['SalePrice'].fillna(df['SalePrice'].mean())
 
 
+#drop records with null values(because empty records are very less)
+new_df = df.dropna()
 
+#checking the nullvalues in the new dataframe
+print("Checking the null values of new dataframe \n", new_df.isnull().sum())
 
 
 
