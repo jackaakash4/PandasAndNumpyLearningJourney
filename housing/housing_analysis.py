@@ -78,6 +78,10 @@ df.drop(['Id'],
         )
 
 
+#replacing SalePrice empty values with their mean
+
+df['SalePrice'] = df['SalePrice'].fillna(df['SalePrice'].mean())
+
 
 
 
