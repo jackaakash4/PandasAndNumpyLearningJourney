@@ -22,3 +22,62 @@ print("Integer variables: ", len(int_cols), "\t", int_cols)
 
 float_cols = df.select_dtypes(include = ['float64']).columns
 print("Float variables: ", len(float_cols), "\t", float_cols)
+
+#heat map
+#selecting the numerical feature for heatmap
+
+numerical_df = df.select_dtypes(include = ['int64', 'float64'])
+
+plt.figure(figsize = (12, 6))
+sns.heatmap(numerical_df.corr(),
+            annot = True,
+            fmt = '.2f',
+            linewidths = 2,
+            cmap = 'BrBG'
+            )
+plt.title("Corellation heatmap of numerical features")
+plt.tight_layout()
+plt.show()
+
+#To examine the categorical features, creating Barplot to visualize the distribution
+
+unique_value  = []
+
+for col in object_cols:
+    unique_value.append(df[col].unique().size)
+
+plt.figure(figsize = (10, 6))
+
+plt.title("Number of unique values of categorical feature \n")
+plt.xticks(rotation = 90)
+sns.barplot(x = object_cols, y = unique_value)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
