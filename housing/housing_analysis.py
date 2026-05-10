@@ -73,7 +73,7 @@ for col in object_cols:
 #dropping the id column, because it will not be participation in any prediction
 
 df.drop(['Id'],
-        axix = 1, 
+        axis = 1, 
         inplace = True
         )
 
