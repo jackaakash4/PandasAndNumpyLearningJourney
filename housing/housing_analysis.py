@@ -68,6 +68,17 @@ for col in object_cols:
     index +=1
     plt.show()
 
+#Data Cleaning
+
+#dropping the id column, because it will not be participation in any prediction
+
+df.drop(['Id'],
+        axix = 1, 
+        inplace = True
+        )
+
+
+
 
 
 
