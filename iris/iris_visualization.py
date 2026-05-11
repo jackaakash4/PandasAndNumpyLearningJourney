@@ -82,7 +82,7 @@ plt.show()
 #Boxplot
 
 def graph(y):
-    sns.boxplot(x = 'species', y = y, data = df)
+    sns.boxplot(x = 'species', y = y, data = df, hue = 'species')
 
 plt.figure(figsize = (10, 10))
 
