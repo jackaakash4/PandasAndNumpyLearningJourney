@@ -23,3 +23,17 @@ print("\n Count the ocean_proximity's value : \t", dataset['ocean_proximity'].va
 
 dataset.hist(bins = 64, figsize = (12, 8))
 plt.show()
+
+#creating a training and test sets
+def shuffle_and_split(data, ratio, rnd):
+    shuffled_indice = rnd.permutation(len(data))
+    test_set_size = int(len(data) * ratio)
+    test_set_indice = shuffled_indice[:test_set_size]
+    training_set_indice = shuffled_indice[test_set_size:]
+    return data.iloc[test_set_indice], data.iloc[training_set_indice]
+
+rnd = np.random.default_rng()
+test, training = shuffle_and_split(dataset, 0.20, rnd)
+print("Length of training and testing set is ", len(training), len(test))
+
+
