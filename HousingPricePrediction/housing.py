@@ -26,14 +26,17 @@ plt.show()
 
 #creating a training and test sets
 def shuffle_and_split(data, ratio, rnd):
-    shuffled_indice = rnd.permutation(len(data))
-    test_set_size = int(len(data) * ratio)
-    test_set_indice = shuffled_indice[:test_set_size]
-    training_set_indice = shuffled_indice[test_set_size:]
-    return data.iloc[test_set_indice], data.iloc[training_set_indice]
+    shuffled_indices = rnd.permutation(len(data))
+    test_set_size = int(ratio * len(data))
+    test_indices = shuffled_indices[:test_set_size]
+    training_indices = shuffled_indices[test_set_size:]
+    print("Shuffled_indices: \t", shuffled_indices, "\t Test set indices: \t", test_indices, "\tTraining set indices: \t", training_indices)
+    return data.iloc[test_indices], data.iloc[training_indices]
 
-rnd = np.random.default_rng()
-test, training = shuffle_and_split(dataset, 0.20, rnd)
-print("Length of training and testing set is ", len(training), len(test))
+
+#generate random number
+rng = np.random.default_rng()
+testing_set, training_set = shuffle_and_split(dataset, 0.2, rng)
+print(f"Length of training set is : {len(training_set)} and testing set is : {len(testing_set)}")
 
 
