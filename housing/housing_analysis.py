@@ -89,6 +89,34 @@ new_df = df.dropna()
 print("Checking the null values of new dataframe \n", new_df.isnull().sum())
 
 
+#OneHotEncoder: For label categorical features
+#it is the best way to convert categorical data into binary vectors. This maps the values to integer values.
+#using it, we can easily convert object data into int
+
+from sklearn.preprocessing import OneHotEncoder
+
+s = (df.dtypes == 'object')
+object_cols = list(s[s].index)
+print("Categorical variables: \n", object_cols)
+print("\nNo. of categorical variables: \n", len(object_cols))
+
+#after listing all the features. now OneHotEncoding to the whole list
+
+OH_encoder = OneHotEncoder(sparse_output = False, handle_unknown = 'ignore')
+OH_cols = pd.DataFrame(OH_encoder.fit_transform(df[object_cols]))
+OH_cols.index = df.index
+OH_cols.columns = OH_encoder.get_feature_names_out()
+df_final = df.drop(object_cols, axis = 1)
+df_final = pd.concat([df_final, OH_cols], axis = 1)
+
+print("\nFinal dataframe: \n", df_final)
+print("\nDescribe final datafram: \n", df_final.describe())
+print("\nInfo of final dataframe: \n", df_final.info())
+print("\nShape of final dataframe: \n", df_final.shape)
+
+
+
+
 
 
 
