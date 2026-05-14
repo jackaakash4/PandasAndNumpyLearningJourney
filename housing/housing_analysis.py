@@ -136,14 +136,18 @@ X_train, X_valid, Y_train, Y_valid = train_test_split(
 
 #importing SVM libraries
 from sklearn import svm
-from sklearn.svm import SVC
+#from sklearn.svm import SVC
+#SVC = Support Vector Classifier
 from sklearn.metrics import mean_absolute_percentage_errror
 
 model_SVR = svm.SVR()
+#SVC is for classification and SVR is for regression
 model_SVR.fit(X_train, Y_train)
 Y_pred = model_SVR.predict(X_valid)
 
-print("\nMean absolute percentage error: \t", mean_absolute_percentage_error(Y_valid, Y_pred))
+mape = mean_absolute_percentage_error(Y_valid, Y_pred)
+
+print("\nMean absolute percentage error: \t", mape)
 
 
 
