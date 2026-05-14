@@ -159,6 +159,17 @@ Y_pred = model_RFR.predict(X_valid)
 mape = mean_absolute_percentage_error(Y_valid, Y_pred)
 print("\nMAPE using random forest regression \n", mape)
 
+#Linear regression
+from sklearn.linear_model import LinearRegression
+
+model_LR = LinearRegression()
+model_LR.fit(X_train, Y_train)
+Y_pred = model_LR.predict(X_valid)
+
+mape = mean_absolute_percentage_error(Y_valid, Y_pred)
+print("\nMean absolute percentage error from linear regression: \t", mape)
+
+
 
 
 
