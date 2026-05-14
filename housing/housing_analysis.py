@@ -4,6 +4,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from sklearn.matrics import mean_absolute_error
+from sklearn.model_selection import train_test_split
+
+
 
 df = pd.read_excel("housing.xlsx")
 print("Dataset: \n", df.head())
@@ -114,6 +118,32 @@ print("\nDescribe final datafram: \n", df_final.describe())
 print("\nInfo of final dataframe: \n", df_final.info())
 print("\nShape of final dataframe: \n", df_final.shape)
 
+
+#Splitting dataset into training and testing
+#X and Y splitting( i.e. Y is the SalePrice column and Y is the rest of the other columns)
+
+X = df_final.drop(['SalePrice'], axis = 1)
+Y = df_final['SalePrice']
+
+X_train, X_valid, Y_train, Y_valid = train_test_split(
+        X, Y, train_size = 0.8, test_size = 0.2, random_state = 0)
+
+#Model training and accuracy
+#1. SVM(Support Vector Machine)
+#it is the supervised learning algorithm used for classification as well as regression tasks too. 
+#it works by finding the hyperplane that divides a dataset into classes.
+#the goal is to maximize the margin between the data points and the hyperplane
+
+#importing SVM libraries
+from sklearn import svm
+from sklearn.svm import SVC
+from sklearn.metrics import mean_absolute_percentage_errror
+
+model_SVR = svm.SVR()
+model_SVR.fit(X_train, Y_train)
+Y_pred = model_SVR.predict(X_valid)
+
+print("\nMean absolute percentage error: \t", mean_absolute_percentage_error(Y_valid, Y_pred))
 
 
 
