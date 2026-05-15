@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.matrics import mean_absolute_error
+from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
 
@@ -138,8 +138,7 @@ X_train, X_valid, Y_train, Y_valid = train_test_split(
 from sklearn import svm
 #from sklearn.svm import SVC
 #SVC = Support Vector Classifier
-from sklearn.metrics import mean_absolute_percentage_errror
-
+from sklearn.metrics import mean_absolute_percentage_error
 model_SVR = svm.SVR()
 #SVC is for classification and SVR is for regression
 model_SVR.fit(X_train, Y_train)
@@ -169,33 +168,5 @@ Y_pred = model_LR.predict(X_valid)
 mape = mean_absolute_percentage_error(Y_valid, Y_pred)
 print("\nMean absolute percentage error from linear regression: \t", mape)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+sns.pairplot(data = df_final)
+plt.show()
