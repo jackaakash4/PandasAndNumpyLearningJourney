@@ -40,8 +40,11 @@ testing_set, training_set = shuffle_and_split(dataset, 0.2, rng)
 print(f"Length of training set is : {len(training_set)} and testing set is : {len(testing_set)}")
 
 
-#generating random training set each time is not suitable so we should avoid this process to create the traing and test sets
-#so we will use the hash method to create it
 
-from zlib import crc32
+#creating the training and tests set using scikit learn
 
+from sklearn.model_selection import train_test_split
+
+train_set, test_set = train_test_split(dataset, test_size = 0.2, random_state = 42)
+#this is same as shuffle and split and can generate same dataset using random state
+print(f"Length of training and testing set using train_test_split method: {len(train_set)} and {len(test_set)}")
