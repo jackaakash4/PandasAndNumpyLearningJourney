@@ -65,4 +65,31 @@ plt.show()
 #now creating 10 different stratified splits of the same dataset
 from sklearn.model_selection import StratifiedShuffleSplit
 
-splitter = StratifiedShuffleSplit(n_splits = 10, 
+splitter = StratifiedShuffleSplit(n_splits = 10, test_size = 0.2, random_state = 42)
+strat_splits = []
+
+for train_index, test_index in splitter.split(dataset, dataset['income_cat']):
+    strat_train_set_n = dataset.iloc[train_index]
+    strat_test_set_n = dataset.iloc[test_index]
+    strat_splits.append([strat_train_set_n, strat_test_set_n])
+
+strat_train_set, strat_test_set = strat_splits[0]
+
+print("Strat test set: \n", strat_test_set['income_cat'].value_counts() / len(strat_test_set))
+
+#deleting the income category
+
+for set_ in (strat_train_set, strat_test_set):
+    set_.drop("income_cat", axis = 1, inplace = True)
+
+
+#Exploring and Visualizing the data to gain insight
+housing = strat_train_set.copy()
+
+#visualizing geographical data
+
+housing.plot(kind = 'scatter', x = 'longitude', y = 'latitude', grid = True, alpha = 0.2)
+plt.show()
+
+
+
