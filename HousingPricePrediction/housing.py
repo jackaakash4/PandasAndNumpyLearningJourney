@@ -48,3 +48,21 @@ from sklearn.model_selection import train_test_split
 train_set, test_set = train_test_split(dataset, test_size = 0.2, random_state = 42)
 #this is same as shuffle and split and can generate same dataset using random state
 print(f"Length of training and testing set using train_test_split method: {len(train_set)} and {len(test_set)}")
+
+#visualizing the median income
+#creating new catagory income_cat
+
+dataset['income_cat'] = pd.cut(dataset['median_income'],
+                               bins = [0., 1.5, 3.0, 4.5, 6., np.inf],
+                               labels = [1, 2, 3, 4, 5])
+
+cat_counts = dataset['income_cat'].value_counts().sort_index()
+cat_counts.plot.bar(rot = 0, grid = False)
+plt.xlabel("Income category")
+plt.ylabel("No. of districts")
+plt.show()
+
+#now creating 10 different stratified splits of the same dataset
+from sklearn.model_selection import StratifiedShuffleSplit
+
+splitter = StratifiedShuffleSplit(n_splits = 10, 
