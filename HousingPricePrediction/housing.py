@@ -95,5 +95,25 @@ plt.show()
 housing.plot(kind = 'scatter', x = 'longitude', y = 'latitude', grid = True, s = housing['population'] / 100, label = 'population', c = 'median_house_value', cmap = 'jet', colorbar = True, legend = True, sharex = False, figsize = (10, 7))
 plt.show()
 
+#Look for correlation
+#since the dataset is not too large, we can easily compute the standard correlation coefficient between every pair of numerical attributes using corr() method
 
+corr_matrix = housing.corr(numeric_only = True)
+#looking how much each attribute correlates with the median house value
+print("Correlation between median house value with other attributes: \n", corr_matrix['median_house_value'].sort_values(ascending=False))
+sns.pairplot(data = corr_matrix)
+plt.show()
 
+#plotting correlation between attributes using scatter_matrix() method
+
+from pandas.plotting import scatter_matrix
+
+attributes = ['median_house_value', 'median_income', 'total_rooms', 'housing_median_age']
+
+scatter_matrix(housing[attributes], figsize = (12, 8))
+plt.show()
+
+#plotting the housing dataset between median_income and median_house_value
+
+housing.plot(kind = 'scatter', x = 'median_income', y = 'median_house_value', alpha = 0.1, grid = True)
+plt.show()
