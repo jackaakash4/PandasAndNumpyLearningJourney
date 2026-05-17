@@ -92,4 +92,8 @@ housing.plot(kind = 'scatter', x = 'longitude', y = 'latitude', grid = True, alp
 plt.show()
 
 
+housing.plot(kind = 'scatter', x = 'longitude', y = 'latitude', grid = True, s = housing['population'] / 100, label = 'population', c = 'median_house_value', cmap = 'jet', colorbar = True, legend = True, sharex = False, figsize = (10, 7))
+plt.show()
+
+
 
